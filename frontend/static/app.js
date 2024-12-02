@@ -39,7 +39,7 @@ async function startDraw() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ id: drawPerson.id }) // changed 'friend' to 'id'
+                body: JSON.stringify({ id: drawPerson.id })
             });
 
             if (deleteResponse.ok) {
