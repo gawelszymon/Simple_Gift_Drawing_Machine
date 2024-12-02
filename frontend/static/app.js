@@ -1,5 +1,5 @@
 async function startDraw() {
-    const selectedPerson  = document.getElementById('personSelect').value;
+    const selectedPerson = document.getElementById('personSelect').value;
     const resultDiv = document.getElementById('result');
 
     if (!selectedPerson) {
@@ -39,7 +39,7 @@ async function startDraw() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ friend: drawPerson.id})
+                body: JSON.stringify({ id: drawPerson.id }) // changed 'friend' to 'id'
             });
 
             if (deleteResponse.ok) {

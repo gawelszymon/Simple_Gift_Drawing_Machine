@@ -1,10 +1,10 @@
 from flask import Flask
 from flask_cors import CORS
-from config import Config
-from models import db
-from routes import init_routes
+from backend.config import Config
+from backend.models import db
+from backend.routes import init_routes
 
-app = Flask(__name__, template_folder="../frontend/templates", static_folder='../frontend/static')
+app = Flask(__name__, template_folder="./frontend/templates", static_folder='./frontend/static')
 app.config.from_object(Config)
 CORS(app)
 

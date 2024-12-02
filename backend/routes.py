@@ -5,7 +5,7 @@ from random import randint
 import psycopg2
 from flask import (current_app, jsonify, redirect, render_template, request, url_for)
 from psycopg2 import errors
-from models import db, Friends
+from backend.models import db, Friends
 
 
 def init_routes(app):
@@ -24,8 +24,8 @@ def init_routes(app):
     @app.route('/delete_friend', methods=['POST'])
     def delete_friend():
         data = request.json
-        if 'friend' in data:
-            friend = Friends.query.get(data['friend'])
+        if 'id' in data:
+            friend = Friends.query.get(data['id'])
             if friend:
                 db.session.delete(friend)
                 db.session.commit()
