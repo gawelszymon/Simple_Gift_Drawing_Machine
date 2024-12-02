@@ -8,18 +8,20 @@ async function startDraw() {
     }
 
     try {
-        const drawButton = document.quwerySelector('button');
+        const drawButton = document.querySelector('button');
         drawButton.disabled = true;
 
-        const response = await fetch('.get_availabe_friends');
+        const response = await fetch('/get_available_friends');
         const availableFriends = await response.json();
 
-        const possibleDraws = availableFriends.filter(friend.friend_name !== selectedPerson);
+        const possibleDraws = availableFriends.filter(friend => friend.friend_name !== selectedPerson);
+
+        const friends = ['antek', 'kinga', 'weronika', 'tymek', 'kubsik', 'magiera', 'szymon']
 
         let counter = 0;
         const animationInterval = setInterval(() => {
-            const randomIndex = Math.floor(Math.random() * possibleDraws.length);
-            resultDiv.textContent = possibleDraws[randomIndex].friend_name;
+            const randomIndex = Math.floor(Math.random() * 7);
+            resultDiv.textContent = friends[randomIndex];
             counter++;
 
             if (counter >= 20) {
@@ -32,7 +34,7 @@ async function startDraw() {
             const finalIndex = Math.floor(Math.random() * possibleDraws.length);
             const drawPerson = possibleDraws[finalIndex];
 
-            const deleteResponse = await fetch('delete_friend', {
+            const deleteResponse = await fetch('/delete_friend', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -41,7 +43,7 @@ async function startDraw() {
             });
 
             if (deleteResponse.ok) {
-                resultDiv.innerHTML = `<strong>${selectedPerson} wylosował(a):</strong><br><span style="color: green; font-size: 24px;"> ${drawnPerson.friend_name}</span>`;
+                resultDiv.innerHTML = `<strong>${selectedPerson} wylosował(a):</strong><br><span style="color: green; font-size: 24px;"> ${drawPerson.friend_name}</span>`;
             } else {
                 resultDiv.textContent = 'Losowanie dobiegło końca!';
             }

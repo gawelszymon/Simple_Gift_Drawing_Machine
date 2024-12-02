@@ -1,31 +1,42 @@
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            text-align: center;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&family=Montserrat:ital,wght@0,400;0,700;1,400&family=Roboto+Condensed:wght@300&family=Ubuntu:wght@500&display=swap');
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #cce7ff, #ffffff);
+    color: #333;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-        select,
-        button {
-            padding: 10px;
-            margin: 10px;
-            font-size: 16px;
-        }
+#content {
+    min-height: 55vh;
+}
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+select, button {
+    font-family: 'Chakra Petch', sans-serif;
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+}
 
-        button:hover {
-            background-color: #45a049;
-        }
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        #result {
-            margin-top: 20px;
-            font-size: 18px;
-        }
+button:hover {
+    background-color: #45a049;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+}
