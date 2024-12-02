@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Losowanie Mikołajkowe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+    <h1>Siemka, kto właśnie będzie dokonywał losowania?</h1>
+    
+    <select id="personSelect">
+        <option value="">Twoje imię</option>
+        <option value="antek">Antek</option>
+        <option value="kinga">Kinga</option>
+        <option value="tymek">Tymek</option>
+        <option value="weronika">Weronika</option>
+        <option value="kubsik">Kubsik</option>
+        <option value="magiera">Magiera</option>
+        <option value="szymon">Szymon</option>
+    </select>
+    
+    <button onclick="startDraw()">Losuj</button>
+    
+    <div id="result"></div>
+
+</body>
+</html>
